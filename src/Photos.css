@@ -1,6 +1,78 @@
-.Photos img {
-  border-radius: 6px;
-  margin: 10px 0;
-  width: 100%;
-  height: auto;
+@keyframes zoomIn {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes shadowGlow {
+  from {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  }
+  to {
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bounceIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.Photos {
+  border: solid 1.3px white;
+  padding: 20px;
+  margin-top: 20px;
+  animation: fadeInScale 1s ease-out;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: -20px;
+}
+
+.Photos.ms-5.me-5 {
+  width: 70.4%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+img {
+  width: 170px;
+  height: 130px;
+  padding: 10%;
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+img:hover {
+  animation: zoomIn 0.3s forwards, shadowGlow 0.3s forwards;
+}
+
+.row > div {
+  animation: bounceIn 0.5s ease-out;
 }

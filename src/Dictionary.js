@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import axios from "axios";
+import "./Dictionary.css";
 import Results from "./Results";
 import Photos from "./Photos";
-import "./Dictionary.css";
+import axios from "axios";
 
 export default function Dictionary(props) {
   let [keyword, setKeyword] = useState(props.defaultKeyword);
@@ -10,8 +10,8 @@ export default function Dictionary(props) {
   let [loaded, setLoaded] = useState(false);
   let [photos, setPhotos] = useState(null);
 
-  function handleDictionResponse(response) {
-    setResults(response.data[0]);
+  function handleResponse(response) {
+    setResults(response.data);
   }
 
   function handlePexelsResponse(response) {
@@ -19,14 +19,15 @@ export default function Dictionary(props) {
   }
 
   function search() {
-    // documentation: https://dictionaryapi.dev/e
-    let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en_US/${keyword}`;
-    axios.get(apiUrl).then(handleDictionResponse);
+    let apiKey = "8o03bb70ba39844fdc4a5a5t25cc70b6";
+    let apiUrl = `https://api.shecodes.io/dictionary/v1/define?word=${keyword}&key=${apiKey}`;
+    axios.get(apiUrl).then(handleResponse);
 
     let pexelsApiKey =
-      "563492ad6f91700001000001fdd29f0808df42bd90c33f42e128fa89";
-    let pexelsApiUrl = `https://api.pexels.com/v1/search?query=${keyword}&per_page=9`;
+      "1mtBiz6feMG36s5lFtkB7pxjo9vgmF1q7pwEq2ArEoaR0libWOaII7sg";
+    let pexelsApiUrl = `https://api.pexels.com/v1/search?query=${keyword}&per_page=6`;
     let headers = { Authorization: `${pexelsApiKey}` };
+
     axios.get(pexelsApiUrl, { headers: headers }).then(handlePexelsResponse);
   }
 
@@ -47,19 +48,17 @@ export default function Dictionary(props) {
   if (loaded) {
     return (
       <div className="Dictionary">
-        <section>
-          <h1>What word do you want to look up?</h1>
-          <form onSubmit={handleSubmit}>
-            <input
-              type="search"
-              onChange={handleKeywordChange}
-              defaultValue={props.defaultKeyword}
-            />
-          </form>
-          <div className="hint">
-            suggested words: sunset, wine, yoga, plant...
-          </div>
-        </section>
+        <form onSubmit={handleSubmit} className="searchForm">
+          <input
+            type="search"
+            placeholder="Search a word...."
+            className="searchBar"
+            onChange={handleKeywordChange}
+          />
+        </form>
+        <div className="Hint text-center">
+          <small>i.e. Apple, Scenery, Time </small>
+        </div>
         <Results results={results} />
         <Photos photos={photos} />
       </div>

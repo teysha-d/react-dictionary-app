@@ -1,11 +1,51 @@
+@keyframes fadeInSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .Synonyms {
-  margin: 15px 0 0;
-  padding: 0;
+  margin: 0 20px 10px 20px;
+  padding-left: 0;
+  font-size: 15px;
+  font-family: "Poppins", sans-serif;
+  animation: fadeInSlideUp 1s ease-out; /* Apply fade-in and slide-up animation */
 }
 
 .Synonyms li {
-  font-size: 13px;
   display: inline-block;
-  padding-right: 10px;
-  line-height: 1;
+  padding-right: 18px;
+  animation: slideIn 0.5s ease-out; /* Apply slide-in animation */
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition */
 }

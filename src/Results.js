@@ -1,27 +1,22 @@
 import React from "react";
-import Phonetic from "./Phonetic";
-import Meaning from "./Meaning";
 import "./Results.css";
+import Meaning from "./Meaning";
 
 export default function Results(props) {
   if (props.results) {
     return (
-      <div className="Results">
-        <section>
-          <h2>{props.results.word}</h2>
-          {props.results.phonetics.map(function (phonetic, index) {
-            return (
-              <div key={index}>
-                <Phonetic phonetic={phonetic} />
-              </div>
-            );
-          })}
-        </section>
-        {props.results.meanings.map(function (meaning, index) {
+      <div className="text-left ms-5 me-5 mt-5">
+        <div className="WordPhoneticsSection">
+          <div className="text-capitalize">
+            <h2>{props.results.word}</h2>
+          </div>
+          <h3>/{props.results.phonetic}/</h3>
+        </div>
+        {props.results.meanings.slice(0, 3).map(function (meaning, index) {
           return (
-            <section key={index}>
+            <div key={index} className="MeaningSection">
               <Meaning meaning={meaning} />
-            </section>
+            </div>
           );
         })}
       </div>

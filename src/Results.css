@@ -1,5 +1,83 @@
-.Results h2 {
-  font-size: 36px;
-  font-weight: bold;
-  line-height: 1.5;
+@keyframes fadeInColorChange {
+  from {
+    opacity: 0;
+    color: #ffd700;
+  }
+  to {
+    opacity: 1;
+    color: #ffeb3b;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomInShadow {
+  from {
+    transform: scale(1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  }
+  to {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.WordPhoneticsSection h2 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 30px;
+  margin: 5px 20px;
+  color: #ffd700;
+  animation: fadeInColorChange 1s ease-out;
+}
+
+h3 {
+  font-size: 16px;
+  font-weight: 300;
+  margin-left: 20px;
+  color: #ffd700;
+  animation: slideUp 0.5s ease-out;
+}
+
+.WordPhoneticsSection {
+  background: black;
+  padding: 20px;
+  animation: pulseBackground 3s infinite;
+}
+
+.MeaningSection {
+  border: solid 1.3px white;
+  padding: 20px;
+  margin-top: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.MeaningSection:hover {
+  animation: zoomInShadow 0.3s forwards;
+}
+
+.text-left.ms-5.me-5.mt-5 {
+  width: 75%;
+  margin: 0 auto;
+  margin-top: 50px;
+  font-size: 15.8px;
+  animation: fadeIn 1s ease-out;
 }
