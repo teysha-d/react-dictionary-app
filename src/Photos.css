@@ -1,6 +1,6 @@
 .Photos img {
   border-radius: 6px;
   margin: 10px 0;
-  width: 100%; /* Change to make the image responsive */
-  height: auto; /* Maintain the aspect ratio */
+  width: 100%;
+  height: auto;
 }
