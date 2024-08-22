@@ -12,8 +12,31 @@ export default function App() {
         <main>
           <Dictionary defaultKeyword="sunset" />
         </main>
-        <footer className="App-footer">
-          <small>Coded by SheCodes</small>
+        <footer>
+          This project was coded by{" "}
+          <a
+            href="https://x.com/Teysha_D"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Teysha Darden
+          </a>{" "}
+          and is{" "}
+          <a
+            href="https://github.com/teysha-d/react-dictionary-app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            open-sourced on GitHub
+          </a>{" "}
+          and{" "}
+          <a
+            href="https://react-shecodes-dictionary-app.netlify.app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            hosted on Netlify
+          </a>
         </footer>
       </div>
     </div>
