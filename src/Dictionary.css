@@ -17,10 +17,11 @@
   border-radius: 6px;
   padding: 6px 10px;
   color: #333;
-  border: 1px solid #ddd;
+  border: 2px solid #ddd;
+  height: 60px;
 }
 
 .Dictionary .hint {
   font-size: 11px;
-  margin-top: 5px;
+  margin-top: 20px;
 }
